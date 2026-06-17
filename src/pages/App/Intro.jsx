@@ -25,13 +25,27 @@ export default function Intro() {
 
   return (
     <div
+    
       className="intro-container intro-classic-refresh"
       ref={containerRef}
       style={{
         "--mouse-x": `${mousePosition.x}px`,
         "--mouse-y": `${mousePosition.y}px`
+        
       }}
     >
+<video
+  className="intro-video-bg"
+  autoPlay
+  muted
+  loop
+  playsInline
+  disablePictureInPicture
+  controls={false}
+  controlsList="nodownload nofullscreen noremoteplayback"
+>
+  <source src="/assets/video/intro-bg.mp4" type="video/mp4" />
+</video>
       <div className="background-layer background-layer-1"></div>
       <div className="background-layer background-layer-2"></div>
       <div className="background-overlay"></div>

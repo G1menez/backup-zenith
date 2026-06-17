@@ -2,7 +2,46 @@
 /* Estilo alinhado com Home.css - Versão otimizada */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* VIDEO DE FUNDO */
 
+.intro-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-video-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+
+  object-fit: cover !important;
+
+  z-index: 0 !important;
+
+  display: block !important;
+  opacity: 1 !important;
+
+  filter: brightness(0.55) saturate(1.1) contrast(1.05) !important;
+
+  pointer-events: none !important;
+}
+
+/* escurece o vídeo */
+.intro-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(5,16,12,0.35),
+      rgba(5,16,12,0.65)
+    );
+
+  z-index: -2;
+  pointer-events: none;
+}
 :root {
   --primary: #13ec80;
   --primary-dark: #0fb86b;
@@ -38,27 +77,47 @@ body {
 }
 
 /* CONTAINER PRINCIPAL */
+/* VIDEO DE FUNDO */
+
 .intro-container {
-  min-height: 100vh;
-  width: 100%;
   position: relative;
-  background: var(--background-light);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
-/* BACKGROUND LAYERS */
-.background-layer {
+.intro-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -3;
+
+  filter:
+    brightness(0.45)
+    saturate(1.1)
+    contrast(1.05);
+}
+
+/* escurece o vídeo */
+.intro-container::before {
+  content: "";
   position: fixed;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+  background:
+    linear-gradient(
+      rgba(5,16,12,0.35),
+      rgba(5,16,12,0.65)
+    );
+
+  z-index: -2;
   pointer-events: none;
 }
 
 .background-layer-1 {
-  background-image: url("https://static.vecteezy.com/ti/fotos-gratis/p2/14258031-um-campo-agricola-plantado-com-plantacoes-de-pimenta-cultivo-de-pimentao-alho-poro-e-berinjela-cultivo-de-vegetais-organicos-em-terreno-aberto-producao-de-alimentos-agroindustria-agroindustria-agricultura-fazenda-foto.jpg");
   opacity: 0.55;
   transform: scale(1.05) translate(var(--mouse-x, 0), var(--mouse-y, 0));
   transition: transform 0.1s ease-out;
@@ -111,17 +170,6 @@ body,
   position: fixed;
   inset: 0;
   z-index: -3;
-
-  background-image:
-    linear-gradient(
-      rgba(5, 16, 12, 0.25),
-      rgba(5, 16, 12, 0.55)
-    ),
-    url("https://static.vecteezy.com/system/resources/previews/037/980/691/non_2x/ai-generated-top-aerial-view-of-green-fields-and-meadows-landscape-with-lines-of-fields-grass-trees-indicating-healthy-crop-growth-ai-generated-free-photo.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .background-layer,
